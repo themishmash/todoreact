@@ -96,7 +96,7 @@ deleteTask(index) {
           </div>
         </div>
         <div className={styles.pic}>
-        <img src='./todoImage.jpg' className='responsive' alt='todo-list' width='700' height='720'/>
+        <img src='./todoImage.jpg' className='responsive' alt='todo-list' width='700' height='740'/>
         </div>
         </div>
     </div>)
