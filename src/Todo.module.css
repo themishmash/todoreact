@@ -35,15 +35,15 @@
   
 }
 
-.responsive {
-  width: 100%;
+img{
   height: auto;
+  width: 100%;
+  max-width: 720px;
 }
 
 .pic {
   margin-top: 0px;
-  margin-left: 20px;
-  margin-right: 20px;
+ 
   margin-bottom: 20px;
   margin-top: 30px;
   box-sizing: border-box;
@@ -52,5 +52,7 @@
   padding: 0;
   width: 45vw;
   display: flex;
+ 
+
 }
 
