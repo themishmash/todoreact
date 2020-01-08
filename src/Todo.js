@@ -36,11 +36,12 @@ handleChange = (event) => {
 // }
 
   addTask = () => {
+    if (this.state.input !=='') {
     this.setState({
       tasks: [...this.state.tasks, this.state.input], 
       input: ''
     });
-    
+  }
   }
 
 
@@ -52,6 +53,12 @@ handleChange = (event) => {
     const tasks = [...this.state.tasks];
     tasks.splice(index, 1)
     this.setState({tasks: tasks})
+  }
+
+  keyPressed = (event) => {
+    if (event.key === "Enter") {
+      this.addTask();
+    }
   }
 
 
@@ -77,7 +84,12 @@ handleChange = (event) => {
           </p>
           )}
         <div>
-          <input placeholder='Enter task' value={this.state.input} onChange={this.handleChange} />
+          <input type="text"
+          placeholder='Enter task' 
+          value={this.state.input} 
+          onChange={this.handleChange} 
+          onKeyPress={this.keyPressed}
+          />
           <button onClick={this.addTask} onKeyDown={this.addTask}>Add task</button>
         </div>
 
