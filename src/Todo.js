@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from './Navbar';
-
 import styles from './Todo.module.css';
 
 class Todo extends React.Component {
@@ -12,11 +11,9 @@ class Todo extends React.Component {
       numberTasks: null
       // inputError: ''
     };
-    
   }
   
     
-
 handleChange = (event) => {
   this.setState({ input: event.target.value });
 }
@@ -38,33 +35,30 @@ handleChange = (event) => {
 //   }));
 // }
 
-addTask = () => {
-  this.setState(state => ({
-    tasks: [...state.tasks, state.input],
-    input: '',
-  }));
-}
+  addTask = () => {
+    this.setState({
+      tasks: [...this.state.tasks, this.state.input], 
+      input: ''
+    });
+    
+  }
 
 
 
 //do i need bind this?
-deleteTask(index) {
-  console.log(index)
-  var tasks = [...this.state.tasks];
-  tasks.splice(index, 1)
-  this.setState({tasks})
-}
-
-
-
-
+  deleteTask = (index) => {
+    //debugger
+    console.log(index)
+    const tasks = [...this.state.tasks];
+    tasks.splice(index, 1)
+    this.setState({tasks: tasks})
+  }
 
 
 //why is modules.css not working? ul and li - inheriting things from navbar
 
   render () {
 
-    
     return (<div>
       <div><Navbar /></div>
       <div className={styles.picAndTodo}>
@@ -77,9 +71,9 @@ deleteTask(index) {
           <p key={i}  >
             {task}
             
-          <a href='#' key={i} onClick={this.deleteTask.bind(this, i)}>
-            [X]
-          </a>
+          <button key={i} onClick={this.deleteTask.bind(this, i)}>
+            X
+          </button>
           </p>
           )}
         <div>
